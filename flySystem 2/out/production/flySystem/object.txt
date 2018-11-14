@@ -1,0 +1,13 @@
+TransactionImp=transaction.TransactionImp
+UserDaoImp=dao.UserDaoImp
+UserServiceImp=service.serviceImp.UserServiceImp
+UserServiceProxyImp=service.serviceProxy.UserServiceProxyImp
+FlightDaoImp=dao.FlightDaoImp
+FlightServiceImp=service.serviceImp.FlightServiceImp
+FlightServiceProxyImp=service.serviceProxy.FlightServiceProxyImp
+AdminUserDaoImp=dao.AdminUserDaoImp
+AdminUserServiceImp=service.serviceImp.AdminUserServiceImp
+AdminUserServiceProxyImp=service.serviceProxy.AdminUserServiceProxyImp
+RecorderDaoImp=dao.RecorderDaoImp
+RecorderServiceImp=service.serviceImp.RecorderServiceImp
+RecorderServiceProxyImp=service.serviceProxy.RecorderServiceProxyImp
