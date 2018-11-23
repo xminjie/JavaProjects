@@ -1,0 +1,28 @@
+2018-11-10 15:17:16  INFO RowsMapperUtil:87 - 获取属性出错,class com.njwb.entity.User
+java.lang.NoSuchFieldException: emp_no
+	at java.lang.Class.getDeclaredField(Class.java:1961)
+	at com.njwb.util.RowsMapperUtil.getMapRow(RowsMapperUtil.java:60)
+	at com.njwb.util.JDBCTemplate.query(JDBCTemplate.java:67)
+	at com.njwb.dao.imp.UserDaoImp.queryByAccountAndPasswd(UserDaoImp.java:19)
+	at com.njwb.dao.imp.UserDaoImp.main(UserDaoImp.java:27)
+2018-11-10 15:21:12  INFO RowsMapperUtil:87 - 获取属性出错,class com.njwb.entity.User
+java.lang.NoSuchFieldException: emp_no
+	at java.lang.Class.getDeclaredField(Class.java:1961)
+	at com.njwb.util.RowsMapperUtil.getMapRow(RowsMapperUtil.java:60)
+	at com.njwb.util.JDBCTemplate.query(JDBCTemplate.java:67)
+	at com.njwb.dao.imp.UserDaoImp.queryByAccountAndPasswd(UserDaoImp.java:19)
+	at com.njwb.dao.imp.UserDaoImp.main(UserDaoImp.java:27)
+2018-11-10 15:23:58  INFO RowsMapperUtil:78 - 获取方法出错,class com.njwb.entity.User
+java.lang.NoSuchMethodException: com.njwb.entity.User.setEmp_no(java.lang.String)
+	at java.lang.Class.getDeclaredMethod(Class.java:2017)
+	at com.njwb.util.RowsMapperUtil.getMapRow(RowsMapperUtil.java:63)
+	at com.njwb.util.JDBCTemplate.query(JDBCTemplate.java:67)
+	at com.njwb.dao.imp.UserDaoImp.queryByAccountAndPasswd(UserDaoImp.java:19)
+	at com.njwb.dao.imp.UserDaoImp.main(UserDaoImp.java:27)
+2018-11-10 15:24:30  INFO RowsMapperUtil:87 - 获取属性出错,class com.njwb.entity.User
+java.lang.NoSuchFieldException: role_id
+	at java.lang.Class.getDeclaredField(Class.java:1961)
+	at com.njwb.util.RowsMapperUtil.getMapRow(RowsMapperUtil.java:60)
+	at com.njwb.util.JDBCTemplate.query(JDBCTemplate.java:67)
+	at com.njwb.dao.imp.UserDaoImp.queryByAccountAndPasswd(UserDaoImp.java:19)
+	at com.njwb.dao.imp.UserDaoImp.main(UserDaoImp.java:27)

@@ -1,0 +1,141 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>main.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <script type="text/javascript" src="../../js/jquery-1.8.3.min.js"></script>
+
+    <style type="text/css">
+  	.hide{
+  		display: none;
+  	
+  	}
+    </style>
+   <script type="text/javascript">
+   	$(function(){
+   		//全选/取消效果
+   		levelOne();
+   		levelTwo();
+   	});
+   	
+   	//一级菜单checkbox绑定全选/取消
+   	function levelOne()
+   	{
+   		$("span>input[type='checkbox']").click(function(){
+   			//alert(123);
+   			//alert($(this).attr("checked"));
+   			if($(this).attr("checked") == "checked")
+   			{
+   				$(this).parent().siblings().find(":checkbox").attr("checked",$(this).attr("checked"));
+   			}
+   			else
+   			{
+   				$(this).parent().siblings().find(":checkbox").removeAttr("checked");
+   			}
+   			
+   		});
+   	}
+   	
+   	//二级菜单checkbox绑定全选/取消
+   	function levelTwo()
+   	{
+   		//$("input[name='checkedMenu']")
+   		$("li[class='menu-sub']>input[type='checkbox']").click(function(){
+   			//
+   			var checkboxNum = $(this).parent().parent().find(":checkbox").length;
+   			var checkedNum = $(this).parent().parent().find(":checkbox:checked").length;
+   			if(checkboxNum == checkedNum)
+   			{
+   				$(this).parent().parent().prev().find(":checkbox").attr("checked","checked");
+   			}
+   			else
+   			{
+   				//checkbox->li---->ul---->span--->span下的checkbox
+   				$(this).parent().parent().prev().find(":checkbox").removeAttr("checked");
+   			}
+   			
+   		});
+   	}
+   	
+   </script> 
+    
+   
+  </head>
+  
+  <body>
+  	<div id = "mainDiv">
+	  	
+	    <h1 class="title">首页  &gt;&gt;权限变更 </h1>
+	    <div id = "contentDiv">
+	    	<div id = "content-left" class="lft">
+	    		选择角色:
+	    		<select>
+	    			<option>管理员</option>
+	    			<option>总经理</option>
+	    			<option>普通用户</option>
+	    			<option>财务</option>
+	    		</select>
+	    		
+	    		<ul>
+	    		
+	    			<li >
+	    				<span>人事管理</span>
+	    				<ul >
+	    					<li class="menu-sub">部门管理<input value="4" name="checkedMenu" type="checkbox"></li>
+	    					<li class="menu-sub">员工管理<input value="5" name="checkedMenu" type="checkbox"></li>
+	    					<li class="menu-sub">请假管理<input value="6" name="checkedMenu" type="checkbox">
+	    						<ul>
+	    							<li>
+	    								是否具备审核资质: <input value="1" name="audit_6" type="radio">是  
+	    											 <input value="0" checked="checked" name="audit_6" type="radio"/>否
+	    							</li>
+	    						</ul>
+	    					</li>
+	    				</ul>
+	    			
+	    			</li>
+	    			
+	    			<li class="menu">
+	    				<span>财务管理</span>
+	    				<ul  >
+	    					<li class="menu-sub">报销管理<input value="7" name="checkedMenu" type="checkbox">
+	    						<ul>
+	    							<li>
+	    								是否具备审核资质: <input value="1" name="audit_7" type="radio">是 
+	    											 <input value="0" checked="checked" name="audit_7" type="radio"/>否
+	    							</li>
+	    						</ul>
+	    					</li>
+	    					<li class="menu-sub">报销统计<input value="8" name="checkedMenu" type="checkbox"></li>
+	    				</ul>
+	    			
+	    			</li>	    			
+	    		    <li class="menu">
+	    				<span>系统管理</span>
+	    				<ul >
+	    					<li class="menu-sub">账户维护<input value="9" name="checkedMenu" type="checkbox"></li>
+	    					<li class="menu-sub">角色管理<input value="10" name="checkedMenu" type="checkbox"></li>
+	    					<li class="menu-sub">权限管理<input value="11" name="checkedMenu" type="checkbox"></li>
+	    					<li class="menu-sub">密码重置<input value="12" name="checkedMenu" type="checkbox"></li>
+	    					<li class="menu-sub">系统退出<input value="13" name="checkedMenu" type="checkbox"></li>
+	    				</ul>
+	    			
+	    			</li>
+
+	    		</ul>
+	    		
+	    		
+	    	</div>
+	    	
+	    	
+	    </div>
+	    
+  	
+  	</div>
+   
+  </body>
+</html>

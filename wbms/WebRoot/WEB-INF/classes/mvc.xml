@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+	请求地址, 类地址, 方法名
+
+
+
+
+
+	<action name="/login.action" class="loginController" method="login">
+		<result name="success" type="redirect">/main.jsp</result>
+		<result name="fail" type="forward">/login.jsp</result>
+	</action>
+	<action name="/checkCode.action" class="loginController" method="getCodeImg">
+	</action>
+
+
+	<action name="/depts.action" class="deptController" method="depts">
+		<result name="success" type="redirect">/njwb/dept/depts.jsp</result>
+	</action>
+
+	<!--	 添加除部门-->
+	<action name="/deptAdd.action" class="deptController" method="deptAdd">
+		<result name="success" type="redirect">/depts.action</result>
+	</action>
+	<!--	 删除除部门-->
+	<action name="/deptDelete.action" class="deptController" method="deptDelete">
+		<result name="success" type="redirect">/depts.action</result>
+	</action>
+
+
+	<!--	 察看部门-->
+	<action name="/deptLook.action" class="deptController" method="deptLook">
+		<result name="success" type="forward">/njwb/dept/deptLook.jsp</result>
+	</action>
+
+	<!--	 修改部门-->
+	<action name="/deptModify.action" class="deptController" method="deptModify">
+		<result name="success" type="forward">/depts.action</result>
+	</action>
+
+
+	<!--	 查询所有员工-->
+	<action name="/emps.action" class="empController" method="emps">
+		<result name="success" type="forward">/njwb/emp/emps.jsp</result>
+	</action>
+	<!--	 添加员工-->
+	<action name="/empAdd.action" class="empController" method="empAdd">
+		<result name="success" type="forward">/emps.action</result>
+	</action>
+	<!--	 展示添加界面-->
+	<action name="/empShowAdd.action" class="empController" method="empShowAdd">
+		<result name="success" type="forward">/njwb/emp/empShowAdd.jsp</result>
+	</action>
+	<!--	 删除员工-->
+	<action name="/empDelete.action" class="empController" method="empDelete">
+		<result name="success" type="forward">/emps.action</result>
+	</action>
+	<!--	 查询单个员工-->
+	<action name="/empLook.action" class="empController" method="empLook">
+		<result name="success" type="forward">/njwb/emp/empLook.jsp</result>
+	</action>
+	<!--	 修改员工-->
+	<action name="/empModify.action" class="empController" method="empModify">
+		<result name="success" type="forward">/emps.action</result>
+	</action>
+
+	<!--	用户-->
+	<action name="/users.action" class="userController" method="users">
+		<result name="success" type="forward">/njwb/permission/users.jsp</result>
+	</action>
+	<action name="/able.action" class="userController" method="userAble">
+		<result name="success" type="forward">/users.action</result>
+	</action>
+
+	<action name="/userModify.action" class="userController" method="userModify">
+		<result name="success" type="forward">/users.action</result>
+	</action>
+	<action name="/userLook.action" class="userController" method="userLook">
+		<result name="success" type="forward">/njwb/permission/userLook.jsp
+		</result>
+	</action>
+	<action name="/loginOut.action" class="userController" method="loginOut">
+		<result name="success" type="forward">/login.action</result>
+	</action>
+	<action name="/passwdReset.action" class="userController"
+		method="modifyUserPasswd">
+		<result name="success" type="forward">/login.action</result>
+	</action>
+
+
+	<!--	角色-->
+	<!--获得所有角色-->
+	<action name="/roles.action" class="roleController" method="roles">
+		<result name="success" type="forward">/njwb/permission/roles.jsp</result>
+	</action>
+	<action name="/roleAdd.action" class="roleController" method="roleAdd">
+		<result name="success" type="forward">/roles.action</result>
+	</action>
+	<action name="/roleDelete.action" class="roleController" method="roleDelete">
+		<result name="success" type="forward">/roles.action</result>
+	</action>
+	<action name="/roleLook.action" class="roleController" method="roleLook">
+		<result name="success" type="forward">/njwb/permission/roleLook.jsp
+		</result>
+	</action>
+	<action name="/roleModify.action" class="roleController" method="roleModify">
+		<result name="success" type="forward">/roles.action</result>
+	</action>
+
+
+	<!--	//账单bill-->
+	<action name="/bills.action" class="billController" method="bills">
+		<result name="success" type="forward">/njwb/bill/bills.jsp</result>
+	</action>
+	<action name="/billAdd.action" class="billController" method="billAdd">
+		<result name="success" type="forward">/bills.action</result>
+	</action>
+	<action name="/billDelete.action" class="billController" method="billDelete">
+		<result name="success" type="forward">/bills.action</result>
+	</action>
+	
+	<action name="/billModify.action" class="billController" method="billModify">
+		<result name="success" type="forward">/bills.action</result>
+	</action>
+	
+	<action name="/billLook.action" class="billController" method="billLook">
+		<result name="success" type="forward">/njwb/bill/billLook.jsp</result>
+	</action>
+	
+	<action name="/billDetail.action" class="billController" method="billLook">
+		<result name="success" type="forward">/njwb/bill/billDetail.jsp</result>
+	</action>
+	
+	<action name="/sta.action" class="billController" method="sta">
+		<result name="success" type="forward">/njwb/bill/sta.jsp</result>
+	</action>
+
+
+
+</actions>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--UserDaoImp=dao.daoimp.UserDaoImp-->
+	<!--UserServiceImp=service.serviceimp.UserServiceImp-->
+	<!--EmpServiceImp=service.serviceimp.EmpServiceImp-->
+	<!--EmpDaoImp=dao.daoimp.EmpDaoImp-->
+
+
+<beans>
+
+	<!--	登陆业务-->
+	<bean id="userDao" class="com.njwb.dao.imp.UserDaoImp">
+	</bean>
+
+	<bean id="loginService" class="com.njwb.service.imp.LoginServiceImp">
+		<property name="userDao" ref="userDao"></property>
+		<!--		<property name="empDao" ref="empDao"></property>-->
+	</bean>
+
+	<bean id="loginController" class="com.njwb.controller.LoginController">
+		<property name="loginService" ref="loginService"></property>
+	</bean>
+	<!--	部门业务-->
+	<bean id="deptDao" class="com.njwb.dao.imp.DeptDaoImp">
+	</bean>
+
+	<bean id="deptService" class="com.njwb.service.imp.DeptServiceImp">
+		<property name="deptDao" ref="deptDao"></property>
+	</bean>
+
+
+
+
+	<!--	员工-->
+	<bean id="empDao" class="com.njwb.dao.imp.EmpDaoImp">
+	</bean>
+
+	<bean id="empService" class="com.njwb.service.imp.EmpServiceImp">
+		<property name="empDao" ref="empDao"></property>
+		<!--		<property name="userDao" ref="userDao"></property>-->
+	</bean>
+
+	<bean id="roleDao" class="com.njwb.dao.imp.RoleDaoImp">
+	</bean>
+
+	<bean id="roleService" class="com.njwb.service.imp.RoleServiceImp">
+		<property name="roleDao" ref="roleDao"></property>
+		<property name="loginService" ref="loginService"></property>
+	</bean>
+
+
+	<bean id="empController" class="com.njwb.controller.EmpController">
+		<property name="empService" ref="empService"></property>
+		<property name="deptService" ref="deptService"></property>
+	</bean>
+
+	<bean id="deptController" class="com.njwb.controller.DeptController">
+		<property name="empService" ref="empService"></property>
+		<property name="deptService" ref="deptService"></property>
+	</bean>
+
+	<!--	账户-->
+	<bean id="userController" class="com.njwb.controller.UserController">
+		<property name="loginService" ref="loginService"></property>
+		<property name="roleService" ref="roleService"></property>
+	</bean>
+
+	<bean id="roleController" class="com.njwb.controller.RoleController">
+		<property name="roleService" ref="roleService"></property>
+	</bean>
+
+
+	<!--	报销-->
+	
+	<bean id="billDao" class="com.njwb.dao.imp.BillDaoImp">
+	</bean>
+	
+	<bean id="billService" class="com.njwb.service.imp.BillServiceImp">
+		<property name="empDao" ref="empDao"></property>
+		<property name="billDao" ref="billDao"></property>
+		<property name="deptDao" ref="deptDao"></property>
+	</bean>
+
+	<bean id="billController" class="com.njwb.controller.BillController">
+		<property name="billService" ref="billService"></property>
+	</bean>
+
+
+
+
+</beans>

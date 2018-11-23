@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>部门编辑</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<style type="text/css">
+		body,div,table,tr,td{
+			margin: 0px;
+			padding: 0px;
+		}
+	
+		#deptEditTable{
+			font-size: 15px;
+			border-collapse: collapse;
+			width: 350px;
+			margin: 20px auto;
+			
+			
+		}
+		
+		#deptEditTable td{
+			height: 40px;
+		}
+	
+	</style>
+  </head>
+  
+  <body>
+   	<form action="">
+   	
+   	<table id = "deptEditTable">
+   		<tr>
+   			<td>
+   			部门编号:
+   			</td>
+   			<td>
+   				<input value="A1001" type = "text" name="deptNo" id="deptNo"/>
+   			</td>
+   		</tr>
+   		<tr>
+   			<td>
+   			部门名称:
+   			</td>
+   			<td>
+   				<input value="总经办" type = "text" name="deptName" id="deptName"/>
+   			</td>
+   		</tr>  
+
+   		<tr>
+   			<td>
+   			部门位置:
+   			</td>
+   			<td>
+   				<input value="乌坦城" type = "text" name="deptLoc" id="deptLoc"/>
+   			</td>
+   		</tr>  
+
+   		<tr>
+   			<td>
+   			部门负责人:
+   			</td>
+   			<td>
+   				<select name="deptMaster" id="deptMaster">
+   					<option value=""></option>
+					<option value="E0001">萧炎</option>
+					<option value="E0002">萧薰儿</option>
+					<option value="E0003">纳兰嫣然</option>
+   				</select>
+   			</td>
+   		</tr>  
+
+   		
+   		<tr>
+   			<td colspan="2">
+   				<input type = "submit" value="修改"/>
+   				<input type = "reset" value="重置"/>
+				<a href="dept.html" target="contentPage"><input type="button" value="返回"></a>
+   			</td>
+   		</tr>  	
+   	</table>
+   	
+   	
+   	</form>
+  </body>
+</html>

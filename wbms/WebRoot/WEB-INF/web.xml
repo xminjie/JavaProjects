@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+ 
+<!-- 配置session的失效时间,单位：分钟 -->
+  <session-config>
+  	<session-timeout>60</session-timeout>
+  </session-config>
+  
+    <servlet>
+  	<servlet-name>dispatcherServlet</servlet-name>
+  	<servlet-class>com.njwb.dispatcher.DispatcherServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>dispatcherServlet</servlet-name>
+  	<url-pattern>*.action</url-pattern>
+  </servlet-mapping>
+  
+<!--   字符集过滤器 -->
+  <filter>
+  	<filter-name>charsetFilter</filter-name>
+  	<filter-class>com.njwb.filter.CharsetFilter</filter-class>
+  </filter> 
+  <filter-mapping>
+  	<filter-name>charsetFilter</filter-name>
+<!--  	 拦截所有的请求 -->
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+ 
+
+  
+  
+  <!-- 权限过滤器-->
+  <filter>
+  	<filter-name>authorFilter</filter-name>
+  	<filter-class>com.njwb.filter.AuthorFilter</filter-class>
+  	<init-param>
+  		<param-name>notAuthor</param-name>
+  		<param-value>login.action,login.jsp,result.jsp,.js,.css,checkCode.action,el.jsp</param-value>
+  	</init-param>
+  </filter> 
+  <filter-mapping>
+  	<filter-name>authorFilter</filter-name>
+   	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+<!--  -->
+ 
+  
+  
+  
+  
+  
+  
+</web-app>

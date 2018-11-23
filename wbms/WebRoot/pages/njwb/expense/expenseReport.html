@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>部门管理</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <link rel="stylesheet" type="text/css" href="../../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+    <script type="text/javascript" src="../../js/jquery-1.8.3.min.js"></script>
+
+	<style type="text/css">
+		
+		
+	
+	</style>
+	
+	<script type="text/javascript">
+	
+		var titleRow1 = ["部门","一季度","二季度","三季度","四季度"];
+		var dataRow1 = [{"deptName":"总经办","data":[1000,2000,3000,4000]},
+						{"deptName":"渠道部","data":[1500,2500,3500,4500]},
+						{"deptName":"合计","data":[2500,4500,6500,8500]}];
+		var titleRow2 = ["部门","1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"];
+		var dataRow2 = [{"deptName":"总经办","data":[10,20,30,40,50,60,70,80,90,100,110,120]},
+						{"deptName":"渠道部","data":[15,25,35,45,55,65,75,85,95,105,115,125]},
+						{"deptName":"合计","data":[25,45,65,85,105,125,145,165,185,205,225,245]}]
+		var titleRow3 = ["部门","费用总计"];
+		var dataRow3 = [{"deptName":"总经办","data":[1000]},
+						{"deptName":"渠道部","data":[1500]},
+						{"deptName":"合计","data":[2500]}];
+		$(function(){
+			//页面初始
+			$("#showType3").hide();
+			changeTable(titleRow1,dataRow1)
+		});
+	
+		
+		function changeShowType()
+		{
+			var value = $("select[name='showType']").val();
+			//alert(value);
+			switch(value)
+			{
+				case '1':
+					$("#showType").show();
+					$("#showType3").hide();
+					changeTable(titleRow1,dataRow1);
+					break;
+				case '2':
+					$("#showType").show();
+					$("#showType3").hide();
+					changeTable(titleRow2,dataRow2);
+					break;
+				case '3':
+					$("#showType3").show();
+					$("#showType").hide();
+					changeTable(titleRow3,dataRow3);
+					break;
+			}
+		}
+		
+		function changeTable(titleRow,dataRow)
+		{
+			//alert(123);
+			//清除表所有行
+			$("tr").remove();
+			//生成表头
+			var titleHtml = "<tr class='titleRow'>";
+			for(var i = 0; i < titleRow.length; i++)
+			{
+				titleHtml += "<td>" + titleRow[i] + "</td>";
+			}
+			titleHtml += "</tr>";
+			$("table").append(titleHtml);
+			//生成表数据
+			var dataHtml = "";
+			for(var i = 0; i < dataRow.length; i++)
+			{
+				dataHtml += "<tr>";
+				dataHtml += "<td>" +dataRow[i].deptName  + "</td>";
+				//循环季度/月份(data数组)
+				var datas = dataRow[i].data;
+				for(var j = 0; j < datas.length; j++)
+				{
+					dataHtml += "<td>" +datas[j]  + "</td>";
+				}
+				
+				dataHtml += "</tr>";
+			}
+			$("table").append(dataHtml);
+			//计算,生成总计行
+			$("tr:last").addClass("titleRow");
+		}
+	
+	</script>
+  </head>
+  
+  <body>
+         	<h1 class="title">首页  &gt;&gt;报销统计 </h1>
+         	
+         	<div class="add">
+         		部门:<select >
+         				<option>所有部门</option>
+         				<option>总经办</option>
+         				<option>渠道部</option>
+         				<option>教学部</option>
+         				<option>就业部</option>
+         			</select> 
+         		&nbsp;&nbsp;&nbsp;&nbsp;	
+         		显示类型:<select onchange="changeShowType()" name="showType">
+         				<option value="1">季度显示</option>
+         				<option value="2">月份显示</option>
+         				<option value="3">自定义时间</option>
+         			</select>
+         		&nbsp;&nbsp;&nbsp;&nbsp;	 
+         		<button>查询</button>
+         		<br><br>
+         		
+         		<div id="showType" >
+         			选择年份:<input>
+         		</div>
+         		<div id="showType3" >
+	         		开始时间:<input value="2018-01-01">
+	         		结束时间:<input value="2018-07-31">
+         		</div>
+         		
+         	</div>
+         	
+         	<div id="tableShowType">
+	         	<table class="deptInfo">
+	         	</table>
+         	</div>
+         	
+         	
+  			
+  </body>
+</html>
